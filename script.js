@@ -1,19 +1,16 @@
 function updateDateTime() {
     const now = new Date();
-    
+
     // Update Time
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     document.getElementById('current-time').textContent = `${hours}:${minutes}`;
 
-    // Update Date (Chinese Format)
-    const options = { month: 'long', day: 'numeric', weekday: 'long' };
-    const dateStr = now.toLocaleDateString('zh-CN', options);
-    
-    // Simplistic Lunar date calculation (just for visual parody of the image)
-    const lunarYear = "丙午年";
-    const lunarDate = "正月十四";
-    document.getElementById('current-date').textContent = `${dateStr} · ${lunarYear}${lunarDate}`;
+    // Update Date (English Format)
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    const dateStr = now.toLocaleDateString('en-US', options);
+
+    document.getElementById('current-date').textContent = dateStr;
 }
 
 // Initial update
